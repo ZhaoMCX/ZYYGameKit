@@ -1,0 +1,27 @@
+[
+  {
+    "Key": "showName",
+    "ChineseSimplified": "简体中文",
+    "English": "English"
+  },
+  {
+    "Key": "fontPath",
+    "ChineseSimplified": "",
+    "English": ""
+  },
+  {
+    "Key": "fontSize",
+    "ChineseSimplified": "15",
+    "English": "16"
+  },
+  {
+    "Key": "/print",
+    "ChineseSimplified": "打印",
+    "English": "Print"
+  },
+  {
+    "Key": "/this is a <Red>print</Red> buff",
+    "ChineseSimplified": "这是一个<Red>打印</Red> Buff",
+    "English": "this is a <Red>print</Red> buff"
+  }
+]

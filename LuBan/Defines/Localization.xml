@@ -1,0 +1,10 @@
+<moudle name="Localization.Generate">
+
+    <bean name="Language">
+        <var name="Key" type="string"/>
+        <var name="ChineseSimplified" type="string"/>
+        <var name="English" type="string"/>
+    </bean>
+    
+    <table name="TbLanguage" value="Language" input="Language.xlsx"/>
+</moudle>

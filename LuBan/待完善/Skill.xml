@@ -1,0 +1,13 @@
+<module name="Combat.Skill.Generate">
+    <bean name="SkillTemplete">
+        <var name="id" type="int"/>
+        <var name="skillName" type="text"/>
+        <var name="desc" type="text"/>
+        <var name="iconPath" type="string"/>
+        <var name="cooldown" type="float"/>
+        <var name="effect" type="string"/>
+        <var name="tags" type="(array#sep=;),string"/>
+    </bean>
+    
+    <table name="TbSkill"  value="SkillTemplete" input="Skill.xlsx"/>
+</module>

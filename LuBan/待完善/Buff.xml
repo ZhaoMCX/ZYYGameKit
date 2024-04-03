@@ -1,0 +1,54 @@
+<module name="Combat.Buff.Generate">
+    <bean name="BuffTemplete">
+        <var name="id" type="int"/>
+        <var name="buffName" type="text"/>
+        <var name="priority" type="int"/>
+        <var name="desc" type="text"/>
+        <var name="maxStack" type="int"/>
+        <var name="duration" type="float"/>
+        <var name="tickTime" type="float"/>
+        <var name="isPermanent" type="bool"/>
+        <var name="iconPath" type="string"/>
+        <var name="addTimeRule" type="BuffAddTimeRule"/>
+        <var name="removeStackRule" type="BuffRemoveStackRule"/>
+        <var name="tags" type="(array#sep=;),string" />
+        <var name="onCreate" type="BaseBuffEffect#sep=,"/>
+        <var name="onRemove" type="BaseBuffEffect#sep=,"/>
+        <var name="onStackChange" type="BaseBuffEffect#sep=,"/>
+        <var name="onTick" type="BaseBuffEffect#sep=,"/>
+    </bean>
+
+    <enum name="BuffAddTimeRule">
+        <var name="Add" alias="叠加时间" value="0"/>
+        <var name="Replace" alias="替换时间" value="1"/>
+        <mapper target="all" codeTarget="cs-simple-json">
+            <option name="type" value="ZYYGameKit.Combat.Buff.BuffAddTimeRule"/>
+        </mapper>
+    </enum>
+
+    <enum name="BuffRemoveStackRule">
+        <var name="Clear" alias="清除层数" value="0"/>
+        <var name="Reduce" alias="递减层数" value="1"/>
+        <mapper target="all" codeTarget="cs-simple-json">
+            <option name="type" value="ZYYGameKit.Combat.Buff.BuffRemoveStackRule"/>
+        </mapper>
+    </enum>
+    
+    
+	<bean name="BaseBuffEffect">
+        <mapper target="all" codeTarget="cs-simple-json">
+            <option name="type" value="ZYYGameKit.Combat.Buff.BaseBuffEffect"/>
+            <option name="constructor" value="ExternalTypeUtil.NewBaseBuffEffect"/>
+        </mapper>
+    </bean>
+    
+    <bean name="PrintBuffEffect" parent="BaseBuffEffect">
+        <var name="text" type="string"/>
+        <mapper target="all" codeTarget="cs-simple-json">
+            <option name="type" value="ZYYGameKit.Combat.Buff.PrintBuffEffect"/>
+            <option name="constructor" value="ExternalTypeUtil.PrintBuffEffect"/>
+        </mapper>
+    </bean>
+    
+    <table name="TbBuff"  value="BuffTemplete" input="Buff.xlsx"/>
+</module>
