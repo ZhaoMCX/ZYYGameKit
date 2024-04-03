@@ -1,5 +1,4 @@
-
-namespace ZYFramework.UI
+namespace ZYYGameKit.UI
 {
     public class BaseWidget : BaseBind
     {

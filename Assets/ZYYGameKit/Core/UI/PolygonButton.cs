@@ -1,9 +1,7 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-
-namespace ZYFramework.UI
+namespace ZYYGameKit.UI
 {
     [RequireComponent(typeof(PolygonCollider2D))]
     public class PolygonButton : UnityEngine.UI.Button

@@ -1,10 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-namespace ZYFramework.UI
+namespace ZYYGameKit.UI
 {
     public class BaseUIAnim : MonoBehaviour
     {

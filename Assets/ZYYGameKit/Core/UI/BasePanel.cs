@@ -1,6 +1,4 @@
-using UnityEngine;
-
-namespace ZYFramework.UI
+namespace ZYYGameKit.UI
 {
     public class BasePanel : BaseUI
     {

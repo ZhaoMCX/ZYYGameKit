@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ZYFramework.UI;
 using ZYYGameKit.Resource;
+
 namespace ZYYGameKit.UI
 {
 

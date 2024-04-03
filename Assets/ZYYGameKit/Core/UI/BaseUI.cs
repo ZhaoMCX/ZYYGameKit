@@ -1,7 +1,6 @@
-
 using UnityEngine;
 
-namespace ZYFramework.UI
+namespace ZYYGameKit.UI
 {
     public interface IUIData
     {
