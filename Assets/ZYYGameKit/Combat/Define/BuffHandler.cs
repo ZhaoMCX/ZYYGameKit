@@ -1,15 +1,18 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 namespace ZYYGameKit.Combat
 {
-
-
-
+    
+    /// <summary>
+    /// buff处理类
+    /// </summary>
     public class BuffHandler : MonoBehaviour
     {
+        // 正在有效的buff
         List<BuffInfo> buffs = new List<BuffInfo>();
+        // 即将移除的buff
         List<BuffInfo> removeBuffs = new List<BuffInfo>();
+        // 即将添加的buff
         List<BuffInfo> addBuffs = new List<BuffInfo>();
 
         float elapseTime;
@@ -72,11 +75,16 @@ namespace ZYYGameKit.Combat
             }
             removeBuffs.Clear();
         }
+        
+        /// <summary>
+        /// 处理待添加的buff
+        /// </summary>
         void HandleAddBuffs()
         {
             if (addBuffs.Count == 0) return;
             foreach (var buffInfo in addBuffs)
             {
+                //查重
                 var find = buffs.Find(x => x.BuffConfig.BuffId == buffInfo.BuffConfig.BuffId);
                 if (find == null)
                 {
@@ -85,6 +93,7 @@ namespace ZYYGameKit.Combat
                 }
                 else
                 {
+                    //根据添加的时间类型修改buff时间
                     switch (find.BuffConfig.AddTimeChange)
                     {
                         case AddTimeChangeEnum.Add:
@@ -94,6 +103,7 @@ namespace ZYYGameKit.Combat
                             find.CurDuration = buffInfo.CurDuration;
                             break;
                     }
+                    //如果层数不可堆叠或者超过最大层数，则不处理
                     if (!find.BuffConfig.IsStack || find.CurStack >= find.BuffConfig.MaxStack) continue;
                     find.CurStack++;
                     find.HandleStackChangeEffect();

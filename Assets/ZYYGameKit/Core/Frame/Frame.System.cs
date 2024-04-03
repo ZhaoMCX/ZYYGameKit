@@ -1,9 +1,5 @@
-
-
 namespace ZYYGameKit
 {
-
-
     /// <summary>
     /// 服务层，控制层提供控制层共享的逻辑和共享的变量
     /// 可获取数据
@@ -15,7 +11,6 @@ namespace ZYYGameKit
     {
 
     }
-
 
     public abstract class AbstractSystem : ISystem
     {

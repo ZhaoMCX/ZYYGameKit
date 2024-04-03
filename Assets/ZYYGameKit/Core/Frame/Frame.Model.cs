@@ -1,9 +1,5 @@
-
-
 namespace ZYYGameKit
 {
-    
-
     /// <summary>
     /// 数据层，数据层，提供共享的配置数据，静态数据
     /// 可获取工具
@@ -13,7 +9,6 @@ namespace ZYYGameKit
     {
         
     }
-
 
     public abstract class AbstractModel : IModel
     {

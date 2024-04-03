@@ -3,8 +3,12 @@ using UnityEngine;
 
 namespace ZYYGameKit.Combat
 {
+    /// <summary>
+    /// 技能处理类
+    /// </summary>
     public class SkillHandler : MonoBehaviour
     {
+        //当前拥有的技能
         List<SkillInfo> skills = new List<SkillInfo>();
 
         public void AddSkill(SkillInfo skillInfo)

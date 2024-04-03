@@ -3,8 +3,19 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 namespace ZYYGameKit.Combat
 {
+    /// <summary>
+    /// buff定义部分
+    /// buff负责短暂的，单一性的触发条件，指定触发时机，不监听输入，不处理消耗
+    /// </summary>
+    
+    /// <summary>
+    /// buff运行的数据类
+    /// </summary>
     public class BuffInfo
     {
+        /// <summary>
+        /// 内部类，用于储存周期buff的触发时间
+        /// </summary>
         class PeriodBuffEffect
         {
             public float TriggerTime;
@@ -21,17 +32,23 @@ namespace ZYYGameKit.Combat
         public GameObject Target;
         public float CurDuration;
         public int CurStack;
+        
+        //周期buff效果集合
         List<PeriodBuffEffect> periodBuffEffects;
+        //创建时buff效果集合
         List<BuffEffect> createBuffEffects;
+        //移除时buff效果集合
         List<BuffEffect> removeBuffEffects;
+        //层数变化时buff效果集合
         List<BuffEffect> stackChangeBuffEffects;
 
-
+        
         public BuffInfo(BuffConfig buffConfig, GameObject target, GameObject creator = null)
         {
             BuffConfig = buffConfig;
             Target = target;
             Creator = creator;
+            //遍历buff配置，将buff效果分类
             foreach (var buffConfigBuffEffect in buffConfig.BuffEffects)
             {
                 if ((buffConfigBuffEffect.TriggerTiming & TriggerTimingEnum.Create) == TriggerTimingEnum.Create)
@@ -59,6 +76,7 @@ namespace ZYYGameKit.Combat
             CurStack = 1;
         }
 
+        //buff的更新逻辑
         public bool OnUpdate(float elapseTime)
         {
             HandlePeriodEffect(elapseTime);
@@ -69,21 +87,27 @@ namespace ZYYGameKit.Combat
             }
             return true;
         }
-
+        
+        /// <summary>
+        /// 处理周期效果
+        /// </summary>
+        /// <param name="elapseTime">经过的时间</param>
         public void HandlePeriodEffect(float elapseTime)
         {
             if (periodBuffEffects == null) return;
             foreach (var periodBuffEffect in periodBuffEffects)
             {
+                //如果未达到下一次触发时间，则跳过
                 if (elapseTime <= periodBuffEffect.TriggerTime) continue;
                 foreach (var abstractEffect in periodBuffEffect.Effect.Effects)
                 {
                     abstractEffect.Apply(this);
                 }
+                //更新下一次触发时间
                 periodBuffEffect.TriggerTime = elapseTime + periodBuffEffect.Effect.PeriodTime;
             }
         }
-
+        
         public void HandleCreateEffect()
         {
             if (createBuffEffects == null) return;
@@ -95,7 +119,7 @@ namespace ZYYGameKit.Combat
                 }
             }
         }
-
+        
         public void HandleRemoveEffect()
         {
             if (removeBuffEffects == null) return;
@@ -119,9 +143,9 @@ namespace ZYYGameKit.Combat
             }
         }
     }
-
+    
     /// <summary>
-    /// buff负责短暂的，单一性的触发条件，指定触发时机，不监听输入，不处理消耗
+    /// buff配置类
     /// </summary>
     public class BuffConfig
     {
@@ -136,6 +160,9 @@ namespace ZYYGameKit.Combat
         public BuffEffect[] BuffEffects;
     }
 
+    /// <summary>
+    /// buff效果配置类
+    /// </summary>
     public class BuffEffect
     {
         //触发时机
@@ -162,6 +189,10 @@ namespace ZYYGameKit.Combat
         Reduce
     }
 
+    
+    /// <summary>
+    /// 运用位运算，可实现多个触发时机
+    /// </summary>
     [System.Flags]
     public enum TriggerTimingEnum
     {
