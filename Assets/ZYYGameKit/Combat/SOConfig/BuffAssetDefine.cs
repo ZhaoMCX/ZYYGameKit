@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 namespace ZYYGameKit.Combat.SOConfig
 {
     public class BuffEffectAsset
@@ -13,7 +12,7 @@ namespace ZYYGameKit.Combat.SOConfig
         [EnumToggleButtons]
         public TriggerTimingEnum TriggerTiming;
         [LabelText("周期时间")]
-        [ShowIf("TriggerTiming", TriggerTimingEnum.Period)]
+        [ShowIf("@(TriggerTiming & TriggerTimingEnum.Period) == TriggerTimingEnum.Period")]
         public float PeriodTime;
         [LabelText("触发效果列表")]
         [TypeFilter("GetFilteredTypeList")]
