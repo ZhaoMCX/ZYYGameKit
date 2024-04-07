@@ -17,7 +17,7 @@ namespace ZYYGameKit
 
             if (instanceDict.ContainsKey(key))
             {
-                ZyLogger.Log($"注册实例{key}失败,已存在");
+                ZyyLogger.Log($"注册实例{key}失败,已存在");
             }
             else
             {

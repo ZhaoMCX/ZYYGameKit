@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace ZYYGameKit.Log
 {
-    public static class ZyLogger
+    public static class ZyyLogger
     {
         [Conditional("ENABLE_DEBUG_LOG")]
         public static void Log(string info)

@@ -22,7 +22,12 @@ namespace ZYYGameKit.UI
 
         public void RegisterPanel<T>(BasePanel panel)
         {
-            panelDict.Add(typeof(T).Name,panel);
+            panelDict.TryAdd(typeof(T).Name,panel);
+        }
+        
+        public void RegisterPanel(string name, BasePanel panel)
+        {
+            panelDict.TryAdd(name,panel);
         }
         
         public void BackPanel()

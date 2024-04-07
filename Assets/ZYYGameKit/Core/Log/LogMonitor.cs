@@ -86,7 +86,7 @@ namespace ZYYGameKit.Log
         
         public void Test()
         {
-            ZyLogger.Log(outText);
+            ZyyLogger.Log(outText);
         }
 
         public string outText;

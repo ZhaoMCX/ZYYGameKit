@@ -12,6 +12,6 @@ namespace ZYYGameKit
     /// </summary>
     public interface IController : IGetModel, IGetSystem, ICanSendCommand, ICanRegisterEvent, IGetUtility,ICanSendSearch
     {
-        public void GetBind();
+        public void GetBind(){}
     }
 }

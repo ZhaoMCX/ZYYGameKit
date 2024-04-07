@@ -27,7 +27,7 @@ namespace ZYYGameKit.Core.Utils
         }
         catch (Exception e)
         {
-            ZyLogger.Log(e.Message);
+            ZyyLogger.Log(e.Message);
             return false;
         }
     }
@@ -58,12 +58,12 @@ namespace ZYYGameKit.Core.Utils
                 return data;
             }
 
-            ZyLogger.Log($"File not found:{filePathName}");
+            ZyyLogger.Log($"File not found:{filePathName}");
             return default;
         }
         catch (Exception e)
         {
-            ZyLogger.Log(e.Message);
+            ZyyLogger.Log(e.Message);
             return default;
         }
     }

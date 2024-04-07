@@ -47,9 +47,9 @@ namespace ZYYGameKit
        
     }
     
-    public static class ServerExtensions
+    public static class SystemExtensions
     {
-        public static T GetServer<T>(this IGetSystem slef) where T : class, ISystem
+        public static T GetSystem<T>(this IGetSystem slef) where T : class, ISystem
         {
             return slef.GetModuleManager().GetSystem<T>();
         }

@@ -29,10 +29,5 @@ namespace ZYYGameKit.UI
         {
             Destroy(gameObject);
         }
-        
-        public void GetBind()
-        {
-            
-        }
     }
 }
