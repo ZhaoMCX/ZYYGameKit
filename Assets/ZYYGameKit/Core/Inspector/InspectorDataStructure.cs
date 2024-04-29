@@ -1,12 +1,12 @@
-// using System;
-//
-//
-//
-// namespace ZYFramework.Core.Inspector
-// {
-//     [AttributeUsage(AttributeTargets.Method)]
-//     public class ButtonAttribute : Attribute
-//     {
-//         
-//     }
-// }
+using System;
+
+
+
+namespace ZZYGameKit.Core.Inspector
+{
+    [AttributeUsage(AttributeTargets.Method)]
+    public class ButtonAttribute : Attribute
+    {
+        
+    }
+}
